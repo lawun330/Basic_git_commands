@@ -1,0 +1,9 @@
+#The following is nothing to do with git Basic_git_commands
+#This is the Linux commands that can be used to update or view the different versions of the codes
+#This is to gain some knowledge about version control systems
+#Try it for different text files.
+
+NOT GITHUB BUT ABOUT PATCH AND UPDATES OF CODES
+===============================================
+#diff file1 file2 > file_difference.diff #This search the differences
+#patch file1 < file_difference.diff      #This overwrites or updates one file
