@@ -1,0 +1,90 @@
+********************************************************************************
+
+TREE SYSTEM
+===========
+
+gitUser - local   - local repository    - master branch
+                                        - new branches
+                  - other repositories  - master branch
+                                        - new branches
+        - remote  - repository          - master branch
+                                        - new remote branches
+                  - other repositories  - master branch
+                                        - new remote branches
+
+********************************************************************************
+
+BASIC REQUIREMENTS
+==================
+git init   : initialize the git repository
+git rm <file> : delete the file
+git mv <old_name> <new_name> : to rename or move files
+git config -l : looking at our config
+git config --global user.name || user.email <name or email> : set the user info
+
+git status : check the current status
+git log : to see the commit history
+git log -p : to see the commit history in details (same as diff -u)
+git log --stat : to show some stats about the changes in the commit
+git show <commit-ID> : to see the related commit in details
+
+git diff <file> : show the changes that are unstaged (same as diff -u)
+git diff --staged : show the changes that are already staged
+
+********************************************************************************
+
+BRANCHES AND MASTER
+===================
+git branch : show the branches
+git branch <branch-name> : create a branch "branch-name"
+git branch -d <branch-name> : delete a branch that has already merged
+git branch -D <branch-name> : force delete of a branch
+git checkout <branch-name> : change the workplace to that branch
+git checkout -b <branch> : create a new branch and switch to it
+git merge <branch> : joins the branches together (fast forward : commit history hasn't diverged ,three way merge : diverged commit history)
+git merge --abort : abort the merging process
+git log --graph --oneline : showing a summary of the commit history
+
+********************************************************************************
+
+WORKING LOCALLY
+===============
+EDIT THE FILE : Automatically modify the file (nothing to red)
+git checkout <file> : to clean the working tree, clearing changes in unstaged files (red to nothing)
+
+git add <file> : add the file to the stage (red to green)
+git add -p : show the changes and ask us if we want to stage it or not
+git rm --cached <file> || git reverse  <file> || git reset HEAD <file>: reverse the process of git add <file> (green to red)
+
+git commit : commit the staged file (green to nothing)
+git commit -a : Tracked files can skip 'git add' command and commit directly
+git commit -m '<any-string>': commit and add message without needing to open the text editor
+git commit --amend : to overwrite the previous commit, in other words, modify the commit (similar as creating a new commit & interactive rebase-fix up)
+git revert HEAD : rewind the previous commit (undoing the latest commit)
+git revert <commit-ID> : create a new commit for the related commit  (time traveling the commit)
+
+********************************************************************************
+
+WORKING WITH GITHUB
+===================
+git clone <url> : to clone a repository, making a local copy from the remote repository
+
+git pull : update (fetch and fast forward merge) the local repository to reflect the changes made in remote repository
+git fetch : update a current working branch,without automatically merging
+git remote update :update all remote branches without automatically merging
+git merge <eg - origin/master> : merge the remote repository into local repository
+
+git rebase <eg - origin/master> : fast forward merging instead of three way merge, this is done by changing the base commit
+git rebase -i <master-branch> : open an interactive version of rebase, can use more functions about rebasing and commiting
+
+git checkout <remote-branch> : get new remote branch as a local copy
+
+git push : send our changes to unchanged remote repository
+git push -u <origin> <remote-branch> : creating a branch on the remote repository, pushing remote branches
+git push -f : force an 'git push', can lost data permanently
+
+git remote -v : configuration for the remote
+git branch -r : show the tracked remote branch
+
+
+********************************************************************************
